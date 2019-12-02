@@ -1,7 +1,8 @@
 import org.apache.commons.io.IOUtils;
-import java.io.IOException;
 
 public class Main {
+
+    private static Parser parser = new Parser();
 
     public String readRawDataToString() throws Exception{
         ClassLoader classLoader = getClass().getClassLoader();
@@ -11,7 +12,11 @@ public class Main {
 
     public static void main(String[] args) throws Exception{
         String output = (new Main()).readRawDataToString();
-        System.out.println(output);
 
+        parser.fullParser();
+
+        String result = parser.getFile();
+        System.out.println(output);
+        System.out.println(result);
     }
 }
